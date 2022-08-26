@@ -19,7 +19,7 @@ class Api {
         "search"
             "?part=snippet"
             "&type=video"
-            "&maxResults=30"
+            "&maxResults=5"
             "&order=date"
             "&key=$CHAVE_API"
             "&q=$pesquisar";

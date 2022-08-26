@@ -11,6 +11,17 @@ class _EmAltaState extends State<EmAlta> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      child:
+
+      Center(
+        child:
+        Text("Nada implementado",
+           style:  TextStyle(color: Colors.white),
+        ),
+
+      )
+
+
     );
   }
 }

@@ -26,6 +26,7 @@ class _HomeState extends State<Home> {
     List<Widget> _ListaTelas = [
       Inicio(pesquisa: _vResultPesquisa),
       EmAlta(),
+      Container(),
       Inscricoes(),
       Biblioteca()
     ];
@@ -35,21 +36,22 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: Colors.black,
+          color: Colors.white,
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         title: Image.asset(
-          "img/youtube.png",
-          width: 98,
-          height: 22,
+          "img/youtube.jpg",
+          width: 100,
+          height: 50,
         ),
 
         ///botões de ação
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.videocam_rounded),
+            icon: Icon(Icons.notifications_none),
             onPressed: () {},
           ),
+
           IconButton(
             icon: Icon(Icons.search),
 
@@ -83,12 +85,18 @@ class _HomeState extends State<Home> {
         child: _ListaTelas[
             _IndexDaPagina], //Lista de Widgets (Minhas telas são Widgets)..
       ),
+
+
       bottomNavigationBar: BottomNavigationBar(
-          //backgroundColor: Colors.black,
+        currentIndex: _IndexDaPagina,
+          backgroundColor: Colors.black,
           type: BottomNavigationBarType.fixed,
+          unselectedItemColor: Colors.white,
+          selectedItemColor: Colors.red,
+          //showUnselectedLabels: false,
+
 
           ///Shifting da pra fazer umas coisas maneiras...
-          fixedColor: Colors.red,
 
           ///toda vez que clico no meu BottomNavigationBar atualizo o valor do index selecionado para a minha variável..
           onTap: (i) {
@@ -96,14 +104,22 @@ class _HomeState extends State<Home> {
               _IndexDaPagina = i;
             });
           },
+
           items: [
-            BottomNavigationBarItem(label: 'Início', icon: Icon(Icons.home)),
+            BottomNavigationBarItem(
+                label: 'Início', icon: Icon(Icons.home)),
+
             BottomNavigationBarItem(
                 label: 'Em Alta', icon: Icon(Icons.whatshot)),
-            BottomNavigationBarItem(
-                label: 'Inscrições', icon: Icon(Icons.subscriptions)),
-            BottomNavigationBarItem(
-                label: 'Biblioteca', icon: Icon(Icons.folder)),
+
+            BottomNavigationBarItem(label: '', icon: Icon(
+                Icons.add_circle_outline,
+            size: 40,
+            )),
+
+            BottomNavigationBarItem(label: 'Inscrições', icon: Icon(Icons.subscriptions)),
+
+            BottomNavigationBarItem(label: 'Biblioteca', icon: Icon(Icons.folder)),
           ]),
     );
   }
