@@ -14,9 +14,8 @@ class Inicio extends StatefulWidget {
 
 class _InicioState extends State<Inicio> {
   Future<List<Video?>?> _ListarVideos(String? pPesquisa) {
-    Api vApi = new Api();
 
-    print('Inicio: ' + pPesquisa.toString());
+    Api vApi = new Api();
     return vApi.pesquisar(pPesquisa);
   }
 
@@ -25,6 +24,10 @@ class _InicioState extends State<Inicio> {
     return FutureBuilder<List<Video?>?>(
         future: _ListarVideos(widget.pesquisa),
         builder: (context, snapshot) {
+
+         print("Tem dados? - " + snapshot.hasData.toString()) ;
+
+
           switch (snapshot.connectionState) {
             case ConnectionState.none:
 

@@ -64,8 +64,6 @@ class _HomeState extends State<Home> {
 
                 if (vReturnPesquisa != '') {
                   _vResultPesquisa = vReturnPesquisa!;
-
-                  print('REcente: ' + _vResultPesquisa.toString());
                 }
 
               });
