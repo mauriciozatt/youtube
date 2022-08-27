@@ -25,9 +25,6 @@ class _InicioState extends State<Inicio> {
         future: _ListarVideos(widget.pesquisa),
         builder: (context, snapshot) {
 
-         print("Tem dados? - " + snapshot.hasData.toString()) ;
-
-
           switch (snapshot.connectionState) {
             case ConnectionState.none:
 

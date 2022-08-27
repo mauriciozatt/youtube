@@ -101,14 +101,6 @@ class _InscricoesState extends State<Inscricoes> {
                 ),
               ),
 
-
-
-
-
-
-
-
-
             ],
           ),
         )

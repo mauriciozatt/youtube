@@ -91,7 +91,6 @@ class _HomeState extends State<Home> {
           type: BottomNavigationBarType.fixed,
           unselectedItemColor: Colors.white,
           selectedItemColor: Colors.red,
-          //showUnselectedLabels: false,
 
 
           ///Shifting da pra fazer umas coisas maneiras...

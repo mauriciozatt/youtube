@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:youtube/Model/Video.dart';
 
-const CHAVE_API = 'AIzaSyAXeUt7Ki13MEtrzesguKI1aCqgVpjM9Hs';
+const CHAVE_API = '';
 const URL = 'https://www.googleapis.com/youtube/v3/';
 
 class Api {
@@ -28,16 +28,11 @@ class Api {
     http.Response vResponse = await http.get(Uri.parse(vUrl));
 
     if (vResponse.statusCode == 200) {
-      print("Entrou");
       Map<String, dynamic> vObjetoJson = json.decode(vResponse.body.toString());
 
       ///crio uma lista de objeto Video e alimento essa lista varendo o <Map> do json.
         List<Video> vMinhaListaObjetosVideo = [];
 
-
-     //print("obj" + vObjetoJson["items"]["value"].toString());
-      print("obj" + vObjetoJson["items"].toString());
-      print("obj" + vObjetoJson.length.toString());
 
 
       ///Varendo meu json... Vare até o "maxResults=10" definido na consulta HTTP.
@@ -51,10 +46,6 @@ class Api {
 
         //Add Meu objeto para a minha lista
         vMinhaListaObjetosVideo.add(vObjetoVideo);
-
-
-
-        print("lista" + vMinhaListaObjetosVideo[i].titulo.toString());
       }
 
       return vMinhaListaObjetosVideo;
