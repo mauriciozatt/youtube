@@ -5,12 +5,11 @@ import 'package:youtube/Model/Video.dart';
 const CHAVE_API = '';
 const URL = 'https://www.googleapis.com/youtube/v3/';
 
+
 class Api {
-  //metodos
+
+  //busca os dados...
    Future<List<Video?>?> pesquisar(String ?pesquisar) async {
-     //busca os dados...
-
-
     String vUrl = URL;
 
     vUrl = vUrl +
@@ -23,8 +22,6 @@ class Api {
             "&q=$pesquisar";
 
 
-    print(vUrl);
-
     http.Response vResponse = await http.get(Uri.parse(vUrl));
 
     if (vResponse.statusCode == 200) {
@@ -34,8 +31,7 @@ class Api {
         List<Video> vMinhaListaObjetosVideo = [];
 
 
-
-      ///Varendo meu json... Vare até o "maxResults=10" definido na consulta HTTP.
+      ///Varendo meu json até o "maxResults" definido na consulta HTTP.
       for (var i = 0; i <= 9; i++) {
         Video vObjetoVideo = Video(
             vObjetoJson["items"][i]["id"]["videoId"].toString(),
